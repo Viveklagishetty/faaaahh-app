@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Stackly – food delivery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div id="ph">
+  <div class="st"><span id="clk">11:41</span><span>▂▄▆ 🔋</span></div>
+  <section class="scr on" id="sp"><i class="rip" style="--i:0"></i><i class="rip" style="--i:1"></i><i class="rip" style="--i:2"></i>
+    <img class="stackly-splash-logo" src="stackly-logo-transparent.png" alt="Stackly">
+    <p class="tag">All your food cravings at one place.</p></section>
+  <section class="scr" id="home"></section>
+  <section class="scr" id="menu"></section>
+  <section class="scr" id="cart"></section>
+  <section class="scr" id="proc"></section>
+  <section class="scr" id="orders"></section>
+  <div id="cb"></div><div id="pay"></div>
+  <div id="ov" onclick="closeS()"></div><div id="sheet"></div>
+  <nav id="nav" class="hid"><button class="tab on" data-g="home" onclick="go('home')"><span class="ic" id="i1"></span>Home</button><button class="tab" data-g="orders" onclick="go('orders')"><span class="ic" id="i2"></span>My orders</button></nav>
+  <div id="toast"></div>
+</div>
+<p class="cap">Tap through the whole flow: pick a restaurant, add items, place the order.</p>
+<script src="app.js" defer></script>
+</body>
+</html>

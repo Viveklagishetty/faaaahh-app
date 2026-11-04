@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff9f1">
+  <title>Sign up — Stackly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="page-loader" id="page-loader" role="status" aria-label="Loading Stackly">
+    <img src="stackly-logo-transparent.png" alt="Stackly" class="loader-logo">
+    <span class="loader-bar"><i></i></span>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <main class="auth-page">
+    <section class="auth-visual" aria-label="A table filled with delicious food">
+      <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=3840&q=90" alt="A colorful, freshly prepared meal" fetchpriority="high">
+      <a class="brand" href="index.html" aria-label="Stackly home"><img src="stackly-logo-transparent.png" alt="Stackly"></a>
+      <div class="auth-message"><span>YOUR NEIGHBORHOOD, ON THE MENU</span><h2>Find your new<br>favorite flavor.</h2><p>Fresh picks from the kitchens you’ll love, all in one place.</p></div>
+    </section>
+    <section class="auth-panel">
+      <div class="auth-form-wrap">
+        <div class="auth-top"><a class="brand" href="index.html" aria-label="Stackly home"><img src="stackly-logo-transparent.png" alt="Stackly"></a><a class="back-home" href="index.html">← Back to home</a></div>
+        <h1>Make yourself at home</h1>
+        <p class="auth-intro">Create your Stackly account and let the good meals find you.</p>
+        <form class="auth-form">
+          <label class="field">Your name<input name="name" type="text" placeholder="How should we call you?" autocomplete="name" required></label>
+          <label class="field">Email address<input name="email" type="email" placeholder="you@example.com" autocomplete="email" required></label>
+          <label class="field">Password<input name="password" type="password" placeholder="At least 8 characters" autocomplete="new-password" minlength="8" required></label>
+          <label class="field">Confirm password<input name="confirm-password" type="password" placeholder="Enter your password again" autocomplete="new-password" minlength="8" required></label>
+          <button class="button button-dark auth-submit" type="submit">Create account <span aria-hidden="true">→</span></button>
+        </form>
+        <p class="auth-terms">By signing up, you agree to our Terms of Service and Privacy Policy.</p>
+        <p class="auth-switch">Already have an account? <a href="login.html">Log in</a></p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

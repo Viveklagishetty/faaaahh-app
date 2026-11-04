@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff8ef">
+  <meta name="description" content="Stackly brings the best local restaurants and fresh food straight to your door.">
+  <title>Stackly — Good food, right on time</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="page-loader" id="page-loader" role="status" aria-label="Loading Stackly">
+    <img src="stackly-logo-transparent.png" alt="Stackly" class="loader-logo">
+    <span class="loader-bar"><i></i></span>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Stackly home"><img src="stackly-logo-transparent.png" alt="Stackly"></a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About us</a>
+        <a href="#menu">Menu</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a class="login-link" href="login.html">Log in</a>
+        <a class="button button-dark button-small" href="signup.html">Sign up</a>
+        <a class="cart-link" href="#order-online" aria-label="Your cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.5a2 2 0 0 0 1.9-1.4L21 9H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+          <span class="cart-count" id="cart-count">0</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="eyebrow-dot"></span> GOOD FOOD, RIGHT ON TIME</span>
+          <h1>Made for your<br><span>kind of hungry.</span></h1>
+          <p>Great meals from the neighborhood’s best kitchens, delivered fresh to your door.</p>
+          <form class="delivery-search" id="hero-search">
+            <label class="sr-only" for="food-search">Search dishes or restaurants</label>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+            <input id="food-search" type="search" placeholder="What are you craving?" autocomplete="off">
+            <button class="button button-dark" type="submit">Find food <span aria-hidden="true">→</span></button>
+          </form>
+          <div class="delivery-note"><span class="delivery-icon">⌖</span><span>Delivering to <strong>your neighborhood</strong></span><a href="#order-online">Change</a></div>
+          <div class="hero-proof"><div class="avatar-stack" aria-hidden="true"><i>J</i><i>A</i><i>M</i></div><span><strong>4.9/5</strong> from 2,000+ happy foodies</span></div>
+        </div>
+        <div class="hero-visual">
+          <img class="hero-photo" src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=3840&q=90" alt="Colorful fresh meal bowl with vegetables and herbs" fetchpriority="high">
+          <div class="floating-card delivery-card"><span class="floating-icon">✦</span><span><strong>Fresh, always</strong><small>From kitchen to you</small></span></div>
+          <div class="floating-card rating-card"><span class="rating-star">★</span><span><strong>4.9 out of 5</strong><small>Loved by locals</small></span></div>
+          <span class="hero-orbit orbit-one"></span><span class="hero-orbit orbit-two"></span>
+        </div>
+      </div>
+      <div class="hero-bottom container"><span>FRESH PICKS, JUST FOR YOU</span><span class="hero-line"></span><span>SCROLL TO EXPLORE ↓</span></div>
+    </section>
+
+    <section class="order-section section-pad" id="menu">
+      <div class="container">
+        <div class="section-heading" id="order-online">
+          <div><span class="eyebrow">YOUR NEXT FAVORITE</span><h2>Order something <span>delicious.</span></h2></div>
+          <p>Hand-picked favorites made fresh by the kitchens around you.</p>
+        </div>
+        <div class="category-bar" role="group" aria-label="Filter by food category">
+          <button class="category-chip active" type="button" data-category="all">Everything</button>
+          <button class="category-chip" type="button" data-category="bowls">Bowls</button>
+          <button class="category-chip" type="button" data-category="burgers">Burgers</button>
+          <button class="category-chip" type="button" data-category="pizza">Pizza</button>
+          <button class="category-chip" type="button" data-category="dessert">Dessert</button>
+        </div>
+        <div class="food-grid" id="food-grid" aria-live="polite"></div>
+        <p class="empty-state" id="empty-state" hidden>No dishes found. Try another search or category.</p>
+      </div>
+    </section>
+
+    <section class="about-section section-pad" id="about">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <span class="eyebrow"><span class="eyebrow-dot"></span> A LITTLE ABOUT STACKLY</span>
+          <h2>Good food brings<br>us <span>together.</span></h2>
+          <p>We believe the best meals are the ones that make an ordinary day feel special. Stackly connects you with independent neighborhood kitchens, thoughtful cooks, and the dishes people come back for.</p>
+          <p>From a bright lunch between meetings to a table full of friends, we make it easier to find something lovely, made fresh and delivered with care.</p>
+          <a class="button button-dark" href="#menu">Meet your next meal <span aria-hidden="true">→</span></a>
+          <div class="about-stats"><div><strong>40+</strong><span>local kitchens</span></div><div><strong>4.9★</strong><span>foodie rating</span></div><div><strong>Fresh</strong><span>every single day</span></div></div>
+        </div>
+        <div class="about-visual">
+          <img class="about-photo-main" src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=2400&q=90" alt="Fresh ingredients and colorful vegetables prepared for a meal" loading="lazy">
+          <img class="about-photo-small" src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=90" alt="A nourishing bowl made with fresh ingredients" loading="lazy">
+          <span class="about-sticker">LOCAL<br>LOVE <b>♥</b></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="promo-section" id="how-it-works">
+      <div class="container promo-grid">
+        <div class="promo-photo-wrap">
+          <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=3840&q=90" alt="Freshly grilled food prepared for sharing" loading="lazy">
+          <span class="photo-caption">GOOD FOOD, GOOD COMPANY.</span>
+        </div>
+        <div class="promo-copy">
+          <span class="eyebrow">A LITTLE LESS WAITING</span>
+          <h2>From the first<br>craving to <span>first bite.</span></h2>
+          <p>We bring your favorite neighborhood kitchens closer. Find your pick, place your order, and get back to the good part.</p>
+          <div class="steps">
+            <div class="step"><span>01</span><div><strong>Pick your plate</strong><small>Find something that hits the spot.</small></div></div>
+            <div class="step"><span>02</span><div><strong>We get cooking</strong><small>Your meal is made fresh to order.</small></div></div>
+            <div class="step"><span>03</span><div><strong>Make it a moment</strong><small>Good food is nearly at your door.</small></div></div>
+          </div>
+          <a class="button button-dark" href="#order-online">Explore the menu <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section section-pad" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <span class="eyebrow"><span class="eyebrow-dot"></span> WE’RE ALL EARS</span>
+          <h2>Say hello.<br><span>We’re listening.</span></h2>
+          <p>Questions, feedback, or a favorite local spot we should know about? Drop us a note and our friendly team will be in touch.</p>
+          <a class="contact-detail" href="#contact-form"><span class="contact-icon">✉</span><span><small>HAVE A QUESTION?</small><strong>Send us a note below</strong></span></a>
+          <div class="contact-detail"><span class="contact-icon">⌖</span><span><small>MADE FOR YOUR NEIGHBORHOOD</small><strong>Local food, delivered with love</strong></span></div>
+        </div>
+        <form class="contact-form" id="contact-form">
+          <h3>Send us a little note</h3>
+          <p>We usually get back to you within one business day.</p>
+          <label class="field">Your name<input type="text" name="name" placeholder="How should we call you?" autocomplete="name" required></label>
+          <label class="field">Email address<input type="email" name="email" placeholder="you@example.com" autocomplete="email" required></label>
+          <label class="field">What’s on your mind?<textarea name="message" rows="4" placeholder="Tell us how we can help..." required></textarea></label>
+          <button class="button button-dark" type="submit">Send message <span aria-hidden="true">→</span></button>
+        </form>
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <div class="container newsletter-inner">
+        <div><span class="eyebrow">A GOOD THING IN YOUR INBOX</span><h2>Stay in the <span>loop.</span></h2><p>New spots, local favorites, and little treats. No spam, ever.</p></div>
+        <form class="newsletter-form" id="newsletter-form"><label class="sr-only" for="newsletter-email">Your email address</label><input id="newsletter-email" type="email" placeholder="Your email address" required><button class="button button-dark" type="submit">Keep me posted <span aria-hidden="true">→</span></button></form>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="container footer-cta">
+        <div><span class="eyebrow">YOUR NEXT GREAT MEAL IS CLOSER</span><h2>Let’s make today <span>delicious.</span></h2><p>Find a new favorite from the kitchens right around the corner.</p></div>
+        <a class="button footer-cta-button" href="#menu">Explore the menu <span aria-hidden="true">→</span></a>
+        <span class="footer-doodle" aria-hidden="true">✳</span>
+      </div>
+    </div>
+    <div class="container footer-main">
+      <div class="footer-brand-block">
+        <a class="brand footer-brand" href="#home" aria-label="Stackly home"><img src="stackly-logo-transparent.png" alt="Stackly"></a>
+        <p>Good food makes a good day.<br>Made with care, delivered with love.</p>
+      </div>
+      <div class="footer-column"><h3>Quick links</h3><a href="#home">Home</a><a href="#about">About us</a><a href="#menu">Menu</a><a href="#how-it-works">How it works</a></div>
+      <div class="footer-column"><h3>Let’s connect</h3><a href="#contact">Contact us</a><a href="#contact-form">Send us a note</a><a href="login.html">Log in</a><a href="signup.html">Create an account</a></div>
+      <div class="footer-note"><span>GOOD FOOD. GOOD MOOD.</span><p>Bringing a little more flavor to your everyday.</p></div>
+      <small class="copyright">© 2026 Stackly. Made for good food moments.</small>
+    </div>
+  </footer>
+</body>
+</html>
